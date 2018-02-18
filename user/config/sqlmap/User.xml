@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis">
+	
+	<insert id="insertUser" parameterType="cn.ragd.domain.User">
+		insert into user values(#{username},#{password},#{email},#{phonenumber})
+	</insert>
+	
+	<select id="findUser1" parameterType="java.lang.String" resultType="cn.ragd.domain.User">
+		select * from user where username=#{username}
+	</select>
+	
+	<select id="findUser2" parameterType="cn.ragd.domain.User" resultType="cn.ragd.domain.User">
+		select * from user where username=#{username} and password=#{password}
+	</select>
+	
+</mapper>
